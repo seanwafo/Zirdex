@@ -1,0 +1,149 @@
+/* colors
+----Gradient----
+pure lust: 
+#333333
+#dd1818
+
+Burning Orange:
+#FF416C
+#FF4B2B
+
+Sin city
+#ED213A
+#93291E
+*/
+
+/* Universal Selector '*' */
+* {
+  /* make everything zero margin & padding for CLEAN start*/
+  margin: 0;
+  padding: 0;
+
+  /* border-box :  change the box model so the margins and paddings are no longer added to the total width/height that we specify for the box*/
+  box-sizing: border-box;
+}
+
+/* Body element selector: power inheretance */
+body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #696969;
+  background-color: #0b0b0c;
+}
+
+/* header */
+
+.header {
+  height: 95vh; /* 95% viewport height */
+  background-image: linear-gradient(to right bottom, #351a17da, #680c160e),
+    url(../img/burgerMeal2small2.jpg);
+  background-size: cover; /*whatever the width of the viewport, it will try to fit the element of the box*/
+  background-position: center; /* making the top area of the burger background stayput while being minimized*/
+  position: relative;
+  clip-path: polygon(
+    25% 0%,
+    100% 0%,
+    75% 100%,
+    0% 100%
+  ); /*need to fix clipping the logo */
+}
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+/* .logo {
+  height: 45px;
+ */
+
+/* Too Tasty to be Legal */
+.text-box {
+  position: absolute;
+  top: 45%;
+  left: 50%; /* these "top" and "left" positions are in relation to the parent element*/
+  transform: translate(
+    -50%,
+    -50%
+  ); /* this is in relation to the element itself. */
+  text-align: center; /* making text elements to the center*/
+}
+
+.heading-primary {
+  color: aliceblue;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  backface-visibility: hidden; /* property sets whether the back face of an element is visible when turned towards the user*/
+  margin-bottom: 12vh;
+}
+
+.heading-primary-main {
+  display: block; /* making the 2 texts slogan on top of each other. block creates line break and take the entire width*/
+  font-weight: 800;
+  font-size: 130px;
+  letter-spacing: 10px;
+
+  animation-name: moveInFromTop; /* see animation section*/
+  animation-duration: 1.6s;
+}
+
+.heading-primary-sub {
+  display: block; /* check above definition from 'primary-main'*/
+  font-weight: 400;
+  font-size: 80px;
+  letter-spacing: 35px;
+
+  animation-name: moveInFromBottom;
+  animation-duration: 1.6s;
+  animation-timing-function: cubic-bezier(
+    0.95,
+    0.05,
+    0.795,
+    0.6
+  ); /* slow show animation*/
+}
+
+/* animation */
+@keyframes moveInFromTop {
+  /* start of animation */
+  0% {
+    opacity: 0;
+    transform: translateY(-100px); /* -100px from top to its current location*/
+  }
+
+  /* finish animation */
+  100% {
+    opacity: 1;
+    transform: translate(0); /* original state */
+  }
+}
+
+@keyframes moveInFromBottom {
+  /* start of animation */
+  0% {
+    opacity: 0;
+    transform: translateY(100px); /* -100px from top to its current location*/
+  }
+
+  /* finish animation */
+  100% {
+    opacity: 1;
+    transform: translate(0); /* original state */
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration-line: none;
+  padding: 15px 44px; /* button size padding*/
+  display: inline-block; /* so that it'll have its own space*/
+}
+
+.btn-white {
+  background-color: #ed213a;
+  color: aliceblue;
+}
